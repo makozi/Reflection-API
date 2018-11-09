@@ -1,0 +1,25 @@
+{
+  "name": "reflection_api",
+  "version": "1.0.0",
+  "description": "Node.js Express Reflection API",
+  "main": "index.js",
+  "scripts": {
+  
+    "test": "mocha",
+    "build": "babel server.js --out-dir build",
+    "dev-start": "babel-watch server.js"
+  },
+  "author": "MARIZU-IBEWIRO MAKOZI",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "moment": "^2.22.2",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^2.0.7"
+  }
+}
