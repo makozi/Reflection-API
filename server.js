@@ -1,23 +1,25 @@
 //server.js
   // "test": "echo \"Error: no test specified\" && exit 1 mocha",
+// server.js
+
+import dotenv from 'dotenv';
 import express from 'express';
+import 'babel-polyfill';
+import ReflectionWithJsObject from './src/usingJSObject/controllers/Reflection';
+// import ReflectionWithDB from './src/usingDB/controller/Reflection';
 
-
-
-
-const app= express()
+dotenv.config();
+const Reflection = process.env.TYPE === 'db' ? ReflectionWithDB : ReflectionWithJsObject;
+const app = express()
 
 app.use(express.json())
-app.get('/', (req,res) =>{
+
+app.get('/', (req, res) => {
+  return res.status(200).send({'message': 'YAY! Congratulations! Your first endpoint is working'});
+});
 
 
-    return res.status(200).send({'message': 'YAY! Congratulations! Your first endpoint is working'});
-
-})
-
-
-
-import Reflection from './src/controllers/Reflection';
+// import Reflection from './src/controllers/Reflection';
 app.post('/api/v1/reflections', Reflection.create);
 app.get('/api/v1/reflections', Reflection.getAll);
 app.get('/api/v1/reflections/:id', Reflection.getOne);
